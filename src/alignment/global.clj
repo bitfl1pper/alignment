@@ -70,3 +70,17 @@
    S[x,0] = x * mismatch_penalty"
   [x y]
   (-> (table x y) scond-x0 scond-y0))
+
+
+(defn init-ga-table
+  "Create an initialized 'gloabal alignment table' that satisfies
+   the starting conditions for the global alignment algorithm.
+   Accepts the sequences, and sizes table accordingly. The return
+   value should be passed into the algorithm's fn chain"
+  [seqa seqb]
+  (let [genseq (fn [s] (into [] s))
+        a (genseq seqa)
+        b (genseq seqb)]
+    (-> (table (inc (count a)) (inc (count b)))
+        scond-x0
+        scond-y0)))
