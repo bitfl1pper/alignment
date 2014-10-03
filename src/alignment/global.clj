@@ -171,3 +171,16 @@
 
 (defn update-atable [align-table pair-table x y]
   (assoc-in align-table [x y] (score x y align-table pair-table)))
+
+
+;; This function is in progress and doesn't work right now.
+;; (defn dyna
+;;   ([atable ttable]
+;;      (let [dim (table-dimension atable)
+;;            x (:x dim)
+;;            y (:y dim)]
+;;        (dyna (associn-score atable ttable x y))))
+;;   ([atable ttable x y]
+;;      (if (and (= x 1) (= y 1))
+;;        (associn-score atable ttable 1 1)
+;;        (dyna (associn-score atable ttable x y)))))
