@@ -85,3 +85,21 @@
     (-> (table (inc (count a)) (inc (count b)))
         scond-x0
         scond-y0)))
+
+
+(defn paircomp
+  "I am unwilling to document this function at the moment.
+
+   Create the pair/nopair truth table."
+  ([seqa seqb]
+     (let [comp-char (first seqa)
+           comp (map #(= comp-char %) seqb)
+           accumulate (into [] comp)]
+       (paircomp (rest seqa) seqb accumulate)))
+  ([seqa seqb accumulate]
+     (if (empty? seqa)
+       (vec (map #(vec %) (partition (count seqb) accumulate)))
+       (let [comp-char (first seqa)
+             comp (map #(= comp-char %) seqb)
+             carry (into accumulate comp)]
+         (paircomp (rest seqa) seqb carry)))))
