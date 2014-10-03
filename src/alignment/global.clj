@@ -161,3 +161,13 @@
        (max (diag?score x y align-table pair-table)
             (n?score x y align-table)
             (w?score x y align-table))))
+
+(defn table-dimsension [table]
+  {:x (count (first table))
+   :y (count table)})
+
+(defn has-score? [x y align-table]
+  (not (nil? (score-lookup x y align-table))))
+
+(defn update-atable [align-table pair-table x y]
+  (assoc-in align-table [x y] (score x y align-table pair-table)))
