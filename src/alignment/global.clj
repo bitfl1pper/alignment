@@ -37,6 +37,14 @@
    (for [i (range y)]
      (into [] (repeat x nil)))))
 
+(defn- scond-y0
+  "Transform a 'table' to satisfy the global alignment table
+   starting conditions for table values where the y coordinate = 0."
+  [align-table]
+  (assoc align-table 0 (into []
+                             (map #(* mismatch %)
+                                  (-> align-table first count range)))))
+
 
 (defn- scond-x0
   "Transform a 'table' to satisfy the global alignment table
