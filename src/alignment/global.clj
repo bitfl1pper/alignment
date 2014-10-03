@@ -58,7 +58,8 @@
      (if (= decrement 0)
        align-table
        (scond-x0
-        (assoc-in align-table [decrement 0] (* mismatch decrement))))))
+        (assoc-in align-table [decrement 0] (* mismatch decrement))
+        (dec decrement)))))
 
 
 (defn- arbitrary-ga-table
