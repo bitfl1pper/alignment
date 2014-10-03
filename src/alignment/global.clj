@@ -140,3 +140,24 @@
    conserved
    :else
    mismatch))
+
+
+(defn diag?score [x y align-table pair-table]
+  (+ (nw-score-lookup x y align-table)
+     (match?score x y align-table pair-table)))
+
+(defn n?score [x y align-table]
+  (+ (n-score-lookup x y align-table)
+     mismatch))
+
+(defn w?score [x y align-table]
+  (+ (w-score-lookup x y align-table)
+     mismatch))
+
+(defn score [x y align-table pair-table]
+  (con (= x 0) (score-lookup x y align-table)
+       (= y 0) (score-lookup x y align-table)
+       :else
+       (max (diag?score x y align-table pair-table)
+            (n?score x y align-table)
+            (w?score x y align-table))))
