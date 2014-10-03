@@ -117,3 +117,26 @@
              comp (map #(= comp-char %) seqb)
              carry (into accumulate comp)]
          (paircomp (rest seqa) seqb carry)))))
+
+(defn score-lookup [x y align-table]
+  (get-in align-table [x y]))
+
+(defn nw-score-lookup [x y align-table]
+  (score-lookup (dec x) (dec y) align-table))
+
+(defn n-score-lookup [x y align-table]
+  (score-lookup x (dec y) align-table))
+
+(defn w-score-lookup [x y align-table]
+  (score-lookup (dec x) y align-table))
+
+(defn match?score [x y align-table pair-table]
+  (cond
+   (= x 0)
+   (get-in align-table [y x])
+   (= y 0)
+   (get-in align-table [y x])
+   (true? (get-in pair-table [(dec y) (dec x)]))
+   conserved
+   :else
+   mismatch))
