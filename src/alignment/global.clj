@@ -59,3 +59,14 @@
        align-table
        (scond-x0
         (assoc-in align-table [decrement 0] (* mismatch decrement))))))
+
+
+(defn- arbitrary-ga-table
+  "Create a 'global alignment table' configured with the starting
+   conditions for the algorithm. Dimensions are arbitrary values.
+
+   S[0,0] = 0
+   S[0,y] = y * mismatch_penalty
+   S[x,0] = x * mismatch_penalty"
+  [x y]
+  (-> (table x y) scond-x0 scond-y0))
