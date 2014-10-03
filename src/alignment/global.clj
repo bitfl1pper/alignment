@@ -38,9 +38,9 @@
      (into [] (repeat x nil)))))
 
 
-(defn- scond-y0
+(defn- scond-x0
   "Transform a 'table' to satisfy the global alignment table
-   starting conditions for table values where the y coordinate
+   starting conditions for table values where the x coordinate
    = 0."
   ([align-table]
      (if (empty? align-table)
