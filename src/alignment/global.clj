@@ -7,21 +7,23 @@
 
    - there are algorithmic improvements in the literature
 
+   --- significant room for space and time req reduction ---
+
    This particular implementation stems from work originally undertaken by
    Needleman and Wunsch [*] and as taught by the textbook: HANDBOOK OF
    COMPUTATIONAL MOLECULAR BIOLOGY [**]
 
    This is an original Clojure implementation. All of the code is an interpretation
    of the general concepts described in the textbook. This code is the original
-   work of the author (bitfl1pper). Obviously, the code is merely a derivative of the
+   work of the author (bitfl1pper). Obviously, the code is merely derivative of the
    logic described in the textbook.
 
-   The maths of the algorithm can be found on pages # #2 #3.
+   The maths of the algorithm can be found on pages [...]
 
    I plan on licensing this code to be as free as possible. But I don't really
    know much about licensing, so that's on my todo list.
 
-   For now, assume Eclispse Public License. This code must retain citations.
+   For now, assume Eclipse Public License. This code must retain citations.
    Most importantly: Needleman / Wunsch et al., the Handbook [...], and this
    author.
 
