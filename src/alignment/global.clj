@@ -107,14 +107,14 @@
    Create the pair/nopair truth table."
   ([seqa seqb]
      (let [comp-char (first seqa)
-           comp (map #(= comp-char %) seqb)
+           com (map #(= comp-char %) seqb)
            accumulate (into [] comp)]
        (paircomp (rest seqa) seqb accumulate)))
   ([seqa seqb accumulate]
      (if (empty? seqa)
        (vec (map #(vec %) (partition (count seqb) accumulate)))
        (let [comp-char (first seqa)
-             comp (map #(= comp-char %) seqb)
+             com (map #(= comp-char %) seqb)
              carry (into accumulate comp)]
          (paircomp (rest seqa) seqb carry)))))
 
