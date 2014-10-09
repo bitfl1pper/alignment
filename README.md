@@ -1,5 +1,7 @@
 # alignment
 
+*This is vary early stage, so far only one algorithm is (partially) implemented, roadmap coming soon... I expect this repo to be developed on for quite some time*
+
 This repository contains various implementations of sequence alignment algorithms in clojure.
 
 For educational use only. If you need to actually do sequence alignment, please use production ready software.
