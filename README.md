@@ -11,7 +11,7 @@ The goal here is to learn how the underlying algorithms work, optimization may c
 ## Usage
 
 A more useful tutorial is hopefully coming soon. If you would actually like to use this, you may 
-want to first familiarize yourself with a lot of other stuff first. Failing that, please appreciate the succinctness and passive-aggression in this short tutorial.
+want to first familiarize yourself with a lot of other stuff first. Failing that, please appreciate the succinctness and passive-aggression of this short tutorial.
 
 ## License
 
