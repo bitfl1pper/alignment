@@ -157,12 +157,12 @@
      mismatch))
 
 (defn score [x y align-table pair-table]
-  (con (= x 0) (score-lookup x y align-table)
-       (= y 0) (score-lookup x y align-table)
-       :else
-       (max (diag?score x y align-table pair-table)
-            (n?score x y align-table)
-            (w?score x y align-table))))
+  (cond (= x 0) (score-lookup x y align-table)
+        (= y 0) (score-lookup x y align-table)
+        :else
+        (max (diag?score x y align-table pair-table)
+             (n?score x y align-table)
+             (w?score x y align-table))))
 
 (defn table-dimsension [table]
   {:x (count (first table))
