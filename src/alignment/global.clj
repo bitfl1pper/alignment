@@ -110,20 +110,22 @@
   ([seqa seqb]
      (let [comp-char (first seqa)
            com (map #(= comp-char %) seqb)
-           accumulate (vec comp)]
+           accumulate (vec com)]
        (paircomp (rest seqa) seqb accumulate)))
   ([seqa seqb accumulate]
      (if (empty? seqa)
        (vec (map #(vec %) (partition (count seqb) accumulate)))
        (let [comp-char (first seqa)
              com (map #(= comp-char %) seqb)
-             carry (into accumulate comp)]
+             carry (into accumulate com)]
          (paircomp (rest seqa) seqb carry)))))
 
 (defn score-lookup [x y align-table]
+  "Wrapper for get-in, possibly unnecessary."
   (get-in align-table [x y]))
 
 (defn nw-score-lookup [x y align-table]
+  "Look up score to the northwest."
   (score-lookup (dec x) (dec y) align-table))
 
 (defn n-score-lookup [x y align-table]
