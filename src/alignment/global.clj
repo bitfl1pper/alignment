@@ -37,8 +37,8 @@
 
 
 ;; Example Comparision Strings
-(def ^:private a (into [] "agcttg"))
-(def ^:private b (into [] "aggctga"))
+(def ^:private a (vec "agcttg"))
+(def ^:private b (vec "aggctga"))
 
 ;; Scoring Rules
 (def ^:private conserved 2)
@@ -51,15 +51,15 @@
   [x y]
   (vec
    (for [i (range y)]
-     (into [] (repeat x nil)))))
+     (vec (repeat x nil)))))
 
 (defn- scond-y0
   "Transform a 'table' to satisfy the global alignment table
    starting conditions for table values where the y coordinate = 0."
   [align-table]
-  (assoc align-table 0 (into []
-                             (map #(* mismatch %)
-                                  (-> align-table first count range)))))
+  (assoc align-table 0 (vec
+                        (map #(* mismatch %)
+                             (-> align-table first count range)))))
 
 
 (defn- scond-x0
@@ -71,7 +71,7 @@
        align-table
        (scond-x0 align-table (dec (count align-table)))))
   ([align-table decrement]
-     (if (= decrement 0)
+     (if (zero? decrement)
        align-table
        (scond-x0
         (assoc-in align-table [decrement 0] (* mismatch decrement))
@@ -95,7 +95,7 @@
    Accepts the sequences, and sizes table accordingly. The return
    value should be passed into the algorithm's fn chain"
   [seqa seqb]
-  (let [genseq (fn [s] (into [] s))
+  (let [genseq (fn [s] (vec s))
         a (genseq seqa)
         b (genseq seqb)]
     (-> (table (inc (count a)) (inc (count b)))
@@ -110,7 +110,7 @@
   ([seqa seqb]
      (let [comp-char (first seqa)
            com (map #(= comp-char %) seqb)
-           accumulate (into [] comp)]
+           accumulate (vec comp)]
        (paircomp (rest seqa) seqb accumulate)))
   ([seqa seqb accumulate]
      (if (empty? seqa)
@@ -134,9 +134,9 @@
 
 (defn match?score [x y align-table pair-table]
   (cond
-   (= x 0)
+   (zero? x)
    (get-in align-table [y x])
-   (= y 0)
+   (zero? y)
    (get-in align-table [y x])
    (true? (get-in pair-table [(dec y) (dec x)]))
    conserved
@@ -157,8 +157,8 @@
      mismatch))
 
 (defn score [x y align-table pair-table]
-  (cond (= x 0) (score-lookup x y align-table)
-        (= y 0) (score-lookup x y align-table)
+  (cond (zero? x) (score-lookup x y align-table)
+        (zero? y) (score-lookup x y align-table)
         :else
         (max (diag?score x y align-table pair-table)
              (n?score x y align-table)
