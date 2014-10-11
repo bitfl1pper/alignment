@@ -129,12 +129,15 @@
   (score-lookup (dec x) (dec y) align-table))
 
 (defn n-score-lookup [x y align-table]
+  "Look up score to the north"
   (score-lookup x (dec y) align-table))
 
 (defn w-score-lookup [x y align-table]
+  "Look up score to the west"
   (score-lookup (dec x) y align-table))
 
 (defn match?score [x y align-table pair-table]
+
   (cond
    (zero? x)
    (get-in align-table [y x])
@@ -166,7 +169,7 @@
              (n?score x y align-table)
              (w?score x y align-table))))
 
-(defn table-dimsension [table]
+(defn table-dimension [table]
   {:x (count (first table))
    :y (count table)})
 
