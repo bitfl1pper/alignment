@@ -126,20 +126,19 @@
   "Wrapper for get-in, possibly unnecessary."
   (get-in align-table [x y]))
 
-(defn nw-score-lookup [x y align-table]
+(defn look-nw [x y align-table]
   "Look up score to the northwest."
   (score-lookup (dec x) (dec y) align-table))
 
-(defn n-score-lookup [x y align-table]
+(defn look-n [x y align-table]
   "Look up score to the north"
   (score-lookup x (dec y) align-table))
 
-(defn w-score-lookup [x y align-table]
+(defn look-w [x y align-table]
   "Look up score to the west"
   (score-lookup (dec x) y align-table))
 
 (defn match?score [x y align-table pair-table]
-
   (cond
    (zero? x)
    (get-in align-table [y x])
@@ -152,15 +151,15 @@
 
 
 (defn diag?score [x y align-table pair-table]
-  (+ (nw-score-lookup x y align-table)
+  (+ (look-nw x y align-table)
      (match?score x y align-table pair-table)))
 
 (defn n?score [x y align-table]
-  (+ (n-score-lookup x y align-table)
+  (+ (look-n x y align-table)
      mismatch))
 
 (defn w?score [x y align-table]
-  (+ (w-score-lookup x y align-table)
+  (+ (look-w x y align-table)
      mismatch))
 
 (defn score [x y align-table pair-table]
