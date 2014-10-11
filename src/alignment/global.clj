@@ -95,9 +95,8 @@
    Accepts the sequences, and sizes table accordingly. The return
    value should be passed into the algorithm's fn chain"
   [seqa seqb]
-  (let [genseq (fn [s] (vec s))
-        a (genseq seqa)
-        b (genseq seqb)]
+  (let [a (vec seqa)
+        b (vec seqb)]
     (-> (table (inc (count a)) (inc (count b)))
         scond-x0
         scond-y0)))
