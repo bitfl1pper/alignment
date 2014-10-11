@@ -101,9 +101,12 @@
         scond-x0
         scond-y0)))
 
-
 (defn paircomp
-  "I am unwilling to document this function at the moment.
+  "Compares each character in each sequence to every character in
+   the other sequence. If the characters match return true, if
+   they don't match return false. Places each boolean value into
+   a vector. The vectors are placed into a vector, forming a
+   truth table.
 
    Create the pair/nopair truth table."
   ([seqa seqb]
