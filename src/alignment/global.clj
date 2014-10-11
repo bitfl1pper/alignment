@@ -5,9 +5,17 @@
 
    - the clojure/java itself can be optimized further.
 
-   - there are algorithmic improvements in the literature
+   - there are algorithmic improvements in the literature.
 
    --- significant room for space and time req reduction ---
+
+   This implementation is code could be improved stylistically.
+
+   - some of this code is not idiomatic clojure/functional-code
+
+   - the author is an amateur clojure programmer
+
+   - the author puts way too many comments and long doc strings in the source
 
    This particular implementation stems from work originally undertaken by
    Needleman and Wunsch [*] and as taught by the textbook: HANDBOOK OF
