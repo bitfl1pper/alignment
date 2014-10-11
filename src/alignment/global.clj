@@ -130,21 +130,21 @@
              carry (into accumulate com)]
          (paircomp (rest seqa) seqb carry)))))
 
-(defn score-lookup [x y align-table]
+(defn lookup [x y align-table]
   "Wrapper for get-in, possibly unnecessary."
   (get-in align-table [x y]))
 
 (defn look-nw [x y align-table]
   "Look up score to the northwest."
-  (score-lookup (dec x) (dec y) align-table))
+  (lookup (dec x) (dec y) align-table))
 
 (defn look-n [x y align-table]
   "Look up score to the north"
-  (score-lookup x (dec y) align-table))
+  (lookup x (dec y) align-table))
 
 (defn look-w [x y align-table]
   "Look up score to the west"
-  (score-lookup (dec x) y align-table))
+  (lookup (dec x) y align-table))
 
 (defn match?score [x y align-table pair-table]
   (cond
@@ -171,8 +171,8 @@
      mismatch))
 
 (defn score [x y align-table pair-table]
-  (cond (zero? x) (score-lookup x y align-table)
-        (zero? y) (score-lookup x y align-table)
+  (cond (zero? x) (lookup x y align-table)
+        (zero? y) (lookup x y align-table)
         :else
         (max (diag?score x y align-table pair-table)
              (n?score x y align-table)
@@ -183,7 +183,7 @@
    :y (count table)})
 
 (defn has-score? [x y align-table]
-  (not (nil? (score-lookup x y align-table))))
+  (not (nil? (lookup x y align-table))))
 
 (defn update-atable [align-table pair-table x y]
   (assoc-in align-table [x y] (score x y align-table pair-table)))
