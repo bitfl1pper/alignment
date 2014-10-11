@@ -9,13 +9,9 @@
 
    --- significant room for space and time req reduction ---
 
-   This implementation is code could be improved stylistically.
-
-   - some of this code is not idiomatic clojure/functional-code
-
-   - the author is an amateur clojure programmer
-
-   - the author puts way too many comments and long doc strings in the source
+   Also, this probably isn't a great example of idiomatic clojure. The author is
+   an amateur. The author is working hard at improving code and reducing doc string
+   length.
 
    This particular implementation stems from work originally undertaken by
    Needleman and Wunsch [*] and as taught by the textbook: HANDBOOK OF
