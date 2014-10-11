@@ -2,11 +2,8 @@
   "Implementation of a global sequence alignment algorithm for strings.
 
    This implementation is mostly educational, and can be optimized significantly:
-
    - the clojure/java itself can be optimized further.
-
    - there are algorithmic improvements in the literature.
-
    --- significant room for space and time req reduction ---
 
    Also, this probably isn't a great example of idiomatic clojure. The author is
