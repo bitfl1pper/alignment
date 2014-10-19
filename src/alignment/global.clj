@@ -175,6 +175,49 @@
   (assoc-in align-table [x y] (score x y align-table pair-table)))
 
 
+
+
+
+
+
+(comment
+
+  This is the spirit of the algorithm. Need to make recursive fn.
+
+  (def at (init-ga-table "agctacgtag" "gctagctact"))
+
+  (def pt (paircomp "agctacgtag" "gctagctact"))
+
+  (update-atable
+   (update-atable
+    (update-atable
+     (update-atable
+      (update-atable
+       (update-atable
+        (update-atable
+         (update-atable
+          (update-atable
+           (update-atable at pt 1 1) pt 1 2)
+          pt 1 3)
+         pt 1 4)
+        pt 1 5)
+       pt 1 6)
+      pt 1 7)
+     pt 1 8)
+    pt 1 9)
+   pt 1 10))
+
+;; (defn dyna
+;;   ([align-table comp-table]
+;;      (let [x-c 1
+;;            y-c 1]
+;;        (dyna (update-atable align-table comp-table 1 1) comp-table x-c y-c)))
+;;   ([align-table comp-table x-c y-c]
+;;      (let [x-lim (count (first align-table))
+;;            y-lim (count align-table)]
+;;        (if (< x-c x-lim)
+;;          (dyna (update-atable align-table comp-table (inc x-c) y-c)))))
+
 ;; This function is in progress and doesn't work right now.
 ;; (defn dyna
 ;;   ([atable ttable]
