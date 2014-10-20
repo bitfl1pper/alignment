@@ -197,7 +197,8 @@
         (update-atable
          (update-atable
           (update-atable
-           (update-atable at pt 1 1) pt 1 2)
+           (update-atable at pt 1 1)
+           pt 1 2)
           pt 1 3)
          pt 1 4)
         pt 1 5)
@@ -206,6 +207,14 @@
      pt 1 8)
     pt 1 9)
    pt 1 10))
+
+;; (defn dynamo
+;;   ([at pt]
+;;      (dynamo (update-atable at pt 1 1) pt 1 1))
+;;   ([at pt lastx lasty]
+;;      (if (= lastx (count (first at)))
+;;        at
+;;        (dynamo (update-atable at pt (inc lastx) 1) pt (inc lastx) 1))))
 
 ;; (defn dyna
 ;;   ([align-table comp-table]
